@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Samir Pokhrel - Portfolio</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="scripts.js" defer></script>
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -22,7 +21,7 @@
   </nav>
 
   <!-- Home Section -->
-  <section id="home">
+  <section id="home" class="section">
     <div class="home-content">
       <h1>Welcome to My Portfolio</h1>
       <p>Hello, I'm Samir Pokhrel, a passionate student and aspiring developer.</p>
@@ -30,31 +29,39 @@
   </section>
 
   <!-- About Section -->
-  <section id="about">
+  <section id="about" class="section">
     <div class="container">
       <h2>About Me</h2>
-      <p>Information about Samir's background, education, and interests.</p>
+      <p>I am a student with a keen interest in software development, always eager to learn new technologies and improve my skills.</p>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects">
+  <section id="projects" class="section">
     <div class="container">
       <h2>My Projects</h2>
       <div class="project-list">
-        <!-- Project details go here -->
+        <div class="project">
+          <h3>Project 1</h3>
+          <p>Description of Project 1.</p>
+        </div>
+        <div class="project">
+          <h3>Project 2</h3>
+          <p>Description of Project 2.</p>
+        </div>
+        <!-- Add more projects as needed -->
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact">
+  <section id="contact" class="section">
     <div class="container">
       <h2>Contact Me</h2>
       <form>
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Your Email">
-        <textarea placeholder="Your Message"></textarea>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
         <button type="submit">Send</button>
       </form>
     </div>
