@@ -1,0 +1,43 @@
+/* styles.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+  background-color: #e6f0ff;
+  color: #333;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #cce0ff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+.nav a, .nav button {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #000;
+}
+.section {
+  height: 100vh;
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.highlight {
+  color: #0056b3;
+}
+.user-photo {
+  max-width: 200px;
+  opacity: 0.85;
+  border-radius: 10px;
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #cce0ff;
+}
