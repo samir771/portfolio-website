@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samir Pokhrel - Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="logo">Samir</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#portfolio">My Portfolio</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="mode-toggle">🌙</button>
+    </nav>
+  </header>
+
+  <!-- First Page -->
+  <section id="home" class="section">
+    <div class="home-content">
+      <div class="text-block">
+        <h1>Hi, I'm <span class="name">Samir Pokhrel</span></h1>
+        <h2 class="typed-text">Web SQL Engineer</h2>
+        <img src="https://via.placeholder.com/200" alt="User" class="user-image" />
+      </div>
+    </div>
+    <canvas id="mouse-canvas"></canvas>
+  </section>
+
+  <!-- Second Page: Skills & Description -->
+  <section id="portfolio" class="section">
+    <div class="skills">
+      <h2>My Skills</h2>
+      <div class="skill"><span>Data Analysis</span><div class="bar" style="--level: 90%"></div></div>
+      <div class="skill"><span>Account Management</span><div class="bar" style="--level: 80%"></div></div>
+      <div class="skill"><span>Sales & Marketing Strategy</span><div class="bar" style="--level: 85%"></div></div>
+    </div>
+    <div class="description">
+      <h3>About Me</h3>
+      <p>
+        I studied at XYZ University and have worked at ABC Corp as a SQL and database developer...
+        <!-- You can add more here -->
+      </p>
+    </div>
+  </section>
+
+  <!-- Third Page: Projects -->
+  <section id="projects" class="section">
+    <h2>My Projects</h2>
+    <div class="projects-grid">
+      <div class="project" onclick="openProject('https://github.com/')">
+        <h3>Project One</h3>
+        <p>Click to see more</p>
+      </div>
+      <div class="project" onclick="openProject('https://github.com/')">
+        <h3>Project Two</h3>
+        <p>Click to see more</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Last Page: Contact -->
+  <section id="contact" class="section">
+    <div class="contact-content">
+      <div class="info">
+        <h2>Contact Me</h2>
+        <p><strong>Name:</strong> Samir Pokhrel</p>
+        <p><strong>Email:</strong> samir@example.com</p>
+        <p><strong>Location:</strong> Kathmandu, Nepal</p>
+        <div class="socials">
+          <a href="https://instagram.com" class="popup-link">Instagram</a>
+          <a href="https://facebook.com" class="popup-link">Facebook</a>
+          <a href="https://linkedin.com" class="popup-link">LinkedIn</a>
+          <a href="https://github.com" class="popup-link">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <footer>&copy; 2025 Samir Pokhrel</footer>
+  </section>
+</body>
+</html>

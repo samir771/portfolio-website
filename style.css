@@ -1,0 +1,146 @@
+:root {
+    --bg-light: #f9f9f9;
+    --bg-dark: #121212;
+    --text-light: #000;
+    --text-dark: #fff;
+    --accent: #6c63ff;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.5s, color 0.5s;
+  }
+  
+  body.light {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+  }
+  
+  body.dark {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .section {
+    min-height: 100vh;
+    padding: 6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .home-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .user-image {
+    width: 200px;
+    border-radius: 50%;
+    transition: opacity 0.5s;
+    opacity: 0.8;
+  }
+  
+  .typed-text {
+    font-size: 1.25rem;
+    color: var(--accent);
+    animation: typing 4s infinite;
+  }
+  
+  @keyframes typing {
+    0% { content: ""; }
+    50% { content: "Database Designer"; }
+    100% { content: "Web SQL Engineer"; }
+  }
+  
+  .skills .skill {
+    margin: 10px 0;
+  }
+  
+  .bar {
+    height: 10px;
+    background: var(--accent);
+    width: var(--level);
+    transition: width 1s;
+  }
+  
+  .projects-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  .project {
+    background: var(--accent);
+    color: white;
+    padding: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .project:hover {
+    transform: scale(1.05);
+  }
+  
+  .socials a {
+    display: inline-block;
+    margin-right: 1rem;
+    background: var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+  
+  .socials a:hover {
+    transform: scale(1.1);
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.875rem;
+    background: rgba(0,0,0,0.1);
+  }
+  
+  #mode-toggle {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
