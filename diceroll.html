@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Dice Roller</title>
+  <style>
+    body {
+      background: #1e272e;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #00a8ff;
+    }
+
+    .dice-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .dice {
+      width: 100px;
+      height: 100px;
+      transition: transform 0.4s;
+      cursor: pointer;
+    }
+
+    .dice.roll {
+      animation: shake 0.4s;
+    }
+
+    @keyframes shake {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(15deg); }
+      50% { transform: rotate(-15deg); }
+      75% { transform: rotate(15deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #00a8ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0097e6;
+    }
+
+    .result {
+      margin-top: 25px;
+      font-size: 20px;
+    }
+
+    .history {
+      margin-top: 15px;
+      font-size: 16px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎲 Online Dice Roller</h1>
+
+  <div class="dice-container">
+    <img src="1.png" class="dice" id="dice1" alt="Dice 1" onclick="rollDice()">
+    <img src="6.png" class="dice" id="dice2" alt="Dice 2" onclick="rollDice()">
+  </div>
+
+  <button onclick="rollDice()">Roll Dice</button>
+
+  <div class="result" id="resultText"></div>
+  <div class="history" id="rollHistory"></div>
+
+  <script>
+    const diceImages = [
+      "1.png",
+      "2.png",
+      "3.png",
+      "4.png",
+      "5.png",
+      "6.png"
+    ];
+
+    let history = [];
+
+    function rollDice() {
+      const dice1 = Math.floor(Math.random() * 6);
+      const dice2 = Math.floor(Math.random() * 6);
+
+      const img1 = document.getElementById("dice1");
+      const img2 = document.getElementById("dice2");
+
+      img1.classList.add("roll");
+      img2.classList.add("roll");
+
+      setTimeout(() => {
+        img1.src = diceImages[dice1];
+        img2.src = diceImages[dice2];
+        img1.classList.remove("roll");
+        img2.classList.remove("roll");
+
+        const total = dice1 + dice2 + 2;
+        const resultText = `You rolled a ${dice1 + 1} and ${dice2 + 1} (Total: ${total})`;
+        document.getElementById("resultText").textContent = resultText;
+
+        // Save and update history
+        history.unshift(resultText);
+        if (history.length > 5) history.pop();
+        document.getElementById("rollHistory").innerHTML = "<strong>History:</strong><br>" + history.join("<br>");
+      }, 400);
+    }
+  </script>
+
+</body>
+</html>

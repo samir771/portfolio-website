@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guessing Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .game-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 350px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      margin-bottom: 15px;
+      width: 60%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .message {
+      color: #ff6347;
+    }
+
+    .correct {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="game-container">
+    <h1>Guess the Number</h1>
+    <p>Guess a number between 1 and 100</p>
+    <input type="number" id="guessInput" placeholder="Enter your guess">
+    <button onclick="checkGuess()">Submit Guess</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    let randomNumber = Math.floor(Math.random() * 100) + 1;  // Generate random number between 1 and 100
+    let attempts = 0;
+
+    function checkGuess() {
+      const userGuess = parseInt(document.getElementById("guessInput").value);
+      const resultElement = document.getElementById("result");
+
+      if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+        resultElement.innerHTML = "Please enter a valid number between 1 and 100.";
+        resultElement.classList.add("message");
+        return;
+      }
+
+      attempts++;
+
+      if (userGuess > randomNumber) {
+        resultElement.innerHTML = `Too high! Try again.`;
+        resultElement.classList.add("message");
+        resultElement.classList.remove("correct");
+      } else if (userGuess < randomNumber) {
+        resultElement.innerHTML = `Too low! Try again.`;
+        resultElement.classList.add("message");
+        resultElement.classList.remove("correct");
+      } else {
+        resultElement.innerHTML = `Congratulations! You guessed it in ${attempts} attempts.`;
+        resultElement.classList.add("correct");
+        resultElement.classList.remove("message");
+      }
+
+      document.getElementById("guessInput").value = '';  // Clear input field
+      document.getElementById("guessInput").focus();  // Focus on input field
+    }
+  </script>
+
+</body>
+</html>

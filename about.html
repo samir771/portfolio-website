@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="dynamic.png">
+  <style>
+    .about-container {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+
+    .dark-mode .about-container {
+      background-color: rgba(30, 30, 30, 0.9);
+      color: #fff;
+    }
+
+    .about-container h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #007bff;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .about-container p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .about-container {
+        margin: 20px;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle">
+    <button onclick="toggleMode()" id="theme-button">
+      <span id="theme-icon">🌙</span>
+    </button>
+  </div>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="about-container">
+    <h2>About Me</h2>
+    <p>I am currently pursuing a <span class="highlight">Bachelor's Degree in Computer Science</span> and <span class="highlight">Google Cloud Big Data and Machine Learning</span> at <span class="highlight">Soch College of IT, Ranipauwa, Kaski</span>.</p>
+
+    <p>I possess a strong foundation in <span class="highlight">database management</span> and <span class="highlight">computer networking</span>, with practical experience in <span class="highlight">MySQL</span> for efficient data storage and manipulation.</p>
+
+    <p>Additionally, I have a solid understanding of <span class="highlight">C programming</span> and <span class="highlight">HTML</span>, enhancing both my back-end and front-end development capabilities.</p>
+
+    <p>I’m passionate about building dynamic web experiences and continuously improving my technical expertise.</p>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; Samir Pokhrel. All Rights Reserved.</p>
+      <div class="social-links">
+        <a href="https://twitter.com">Twitter</a>
+        <a href="https://github.com">GitHub</a>
+        <a href="https://linkedin.com">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
