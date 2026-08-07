@@ -1,19 +1,20 @@
 # 🎮 Number Guessing, Dice Roll and Simple Calculation Game for Web Development Course
 
-A simple, interactive, and responsive **Number Guessing and Dice Roll Web Application** built using **HTML, CSS, and JavaScript**.
+A simple, interactive, and responsive **Number Guessing, Dice Roll, and Simple Calculation Web Application** built using **HTML, CSS, and JavaScript**.
 
-The application combines two fun mini-games:
+This project combines three beginner-friendly activities into a single web application:
 
 * 🎯 **Number Guessing Game** – Guess a randomly generated secret number.
 * 🎲 **Dice Roll Game** – Roll a virtual dice and generate a random number from 1 to 6.
+* 🧮 **Simple Calculation** – Perform basic arithmetic calculations such as addition, subtraction, multiplication, and division.
 
-This project demonstrates fundamental JavaScript concepts including random number generation, conditional logic, DOM manipulation, event handling, input validation, and dynamic UI updates.
+The project demonstrates fundamental JavaScript concepts including **random number generation, arithmetic operations, conditional logic, functions, DOM manipulation, event handling, input validation, and dynamic UI updates**.
 
 ---
 
 ## 📌 Overview
 
-The application provides a simple gaming interface where users can choose between different random-number-based activities.
+The application provides a simple gaming interface where users can interact with three different activities.
 
 ### 🎯 Number Guessing
 
@@ -35,6 +36,27 @@ Example:
 🎲 Rolling Dice...
 
 Result: 4
+```
+
+### 🧮 Simple Calculation
+
+The calculation section allows users to perform basic mathematical operations.
+
+Supported operations include:
+
+* ➕ Addition
+* ➖ Subtraction
+* ✖️ Multiplication
+* ➗ Division
+
+Example:
+
+```text
+Number 1: 25
+Operation: +
+Number 2: 15
+
+Result: 40
 ```
 
 ---
@@ -59,18 +81,32 @@ Result: 4
 * 🔢 Random number between 1 and 6
 * ⚡ Instant result
 * 🎨 Animated dice result
-* 🔄 Roll again functionality
+* 🔄 Roll Again functionality
 * 📊 Roll counter
-* 🏆 Optional highest-roll tracking
+* 🏆 Highest-roll tracking
+
+## 🧮 Simple Calculation
+
+* ➕ Addition
+* ➖ Subtraction
+* ✖️ Multiplication
+* ➗ Division
+* 🔢 Numeric input validation
+* ⚡ Instant calculation
+* 🧹 Clear/Reset functionality
+* 📊 Dynamic result display
+* 🚫 Division-by-zero validation
 
 ## 🌐 General Features
 
 * Responsive design
-* Interactive UI
+* Interactive user interface
 * Smooth animations
 * No page reload required
 * Beginner-friendly implementation
 * Works directly in a web browser
+* Client-side processing
+* No database required
 
 ---
 
@@ -195,7 +231,7 @@ JavaScript can generate a random dice result using:
 const diceResult = Math.floor(Math.random() * 6) + 1;
 ```
 
-### How this works
+### How This Works
 
 `Math.random()` generates a value between:
 
@@ -276,6 +312,143 @@ Every roll has a random result from **1 to 6**.
 
 ---
 
+# 🧮 Simple Calculation
+
+## 🧠 Calculation Logic
+
+The calculation section accepts two numbers and an arithmetic operator.
+
+For example:
+
+```text
+Number 1 = 20
+Operation = +
+Number 2 = 10
+```
+
+The application calculates:
+
+```text
+20 + 10 = 30
+```
+
+---
+
+## ➕ Addition
+
+```javascript
+result = number1 + number2;
+```
+
+Example:
+
+```text
+20 + 10 = 30
+```
+
+---
+
+## ➖ Subtraction
+
+```javascript
+result = number1 - number2;
+```
+
+Example:
+
+```text
+20 - 10 = 10
+```
+
+---
+
+## ✖️ Multiplication
+
+```javascript
+result = number1 * number2;
+```
+
+Example:
+
+```text
+20 × 10 = 200
+```
+
+---
+
+## ➗ Division
+
+```javascript
+result = number1 / number2;
+```
+
+Example:
+
+```text
+20 ÷ 10 = 2
+```
+
+The application should also prevent division by zero:
+
+```javascript
+if (number2 === 0 && operation === "/") {
+    message.textContent = "Cannot divide by zero.";
+    return;
+}
+```
+
+---
+
+## 🧮 Basic Calculation Function
+
+```javascript
+function calculate() {
+
+    const number1 =
+        Number(document.getElementById("number1").value);
+
+    const number2 =
+        Number(document.getElementById("number2").value);
+
+    const operation =
+        document.getElementById("operation").value;
+
+    let result;
+
+    switch (operation) {
+
+        case "+":
+            result = number1 + number2;
+            break;
+
+        case "-":
+            result = number1 - number2;
+            break;
+
+        case "*":
+            result = number1 * number2;
+            break;
+
+        case "/":
+
+            if (number2 === 0) {
+                result = "Cannot divide by zero.";
+            } else {
+                result = number1 / number2;
+            }
+
+            break;
+
+        default:
+            result = "Invalid operation.";
+    }
+
+    document.getElementById("result").textContent = result;
+}
+```
+
+---
+
 # 🔄 Dice Roll Flow
 
 ```text
@@ -335,35 +508,64 @@ Too Low  Correct  Too High
 
 ---
 
-# 🕹️ Combined Application Flow
+# 🧮 Calculation Flow
 
 ```text
-             Game Application
-                    │
-          ┌─────────┴─────────┐
-          │                   │
-          ▼                   ▼
-   🎯 Number Guessing    🎲 Dice Roll
-          │                   │
-          ▼                   ▼
- Generate Secret Number   Generate 1–6
-          │                   │
-          ▼                   ▼
-    Enter Guess            Roll Dice
-          │                   │
-          ▼                   ▼
- Compare Guess             Show Result
-          │                   │
-     ┌────┼────┐              │
-     ▼    ▼    ▼              ▼
-   Low  Correct High       Roll Again
+       Start
+         │
+         ▼
+ Enter Number 1
+         │
+         ▼
+ Select Operation
+         │
+         ▼
+ Enter Number 2
+         │
+         ▼
+   Validate Input
+         │
+         ▼
+ Perform Calculation
+         │
+         ▼
+  Display Result
+         │
+         ▼
+     Calculate Again?
 ```
 
 ---
 
-# 🧮 Attempt & Roll Tracking
+# 🕹️ Combined Application Flow
 
-The application can track both guessing attempts and dice rolls.
+```text
+                 Game Application
+                        │
+          ┌─────────────┼─────────────┐
+          │             │             │
+          ▼             ▼             ▼
+   🎯 Number Guess  🎲 Dice Roll  🧮 Calculator
+          │             │             │
+          ▼             ▼             ▼
+ Generate Secret    Generate 1–6   Enter Numbers
+          │             │             │
+          ▼             ▼             ▼
+    Enter Guess      Roll Dice     Select Operation
+          │             │             │
+          ▼             ▼             ▼
+ Compare Guess      Show Result    Calculate Result
+          │             │             │
+     ┌────┼────┐        │             │
+     ▼    ▼    ▼        ▼             ▼
+   Low  Correct High  Roll Again   New Calculation
+```
+
+---
+
+# 🧮 Attempt, Roll & Calculation Tracking
+
+The application can track user activity in each section.
 
 ### Number Guessing
 
@@ -401,6 +603,20 @@ Roll 3 → 6
 Total Rolls: 3
 ```
 
+### Calculations
+
+The application can also count how many calculations the user performs.
+
+Example:
+
+```text
+Calculation 1 → 20 + 10 = 30
+Calculation 2 → 50 - 15 = 35
+Calculation 3 → 8 × 5 = 40
+
+Total Calculations: 3
+```
+
 ---
 
 # 🏆 Scoring System
@@ -414,7 +630,7 @@ A scoring system can be implemented for the Number Guessing Game.
 |      4–5 |    60 |
 |       6+ |    40 |
 
-For the dice game, the application can optionally track the highest result.
+For the dice game, the application can track the highest result.
 
 Example:
 
@@ -427,11 +643,15 @@ Roll 4 → 6
 🏆 Highest Roll: 6
 ```
 
+The calculation section focuses on producing accurate mathematical results rather than a game score.
+
 ---
 
 # 🛡️ Input Validation
 
-The Number Guessing Game validates the user's input.
+The application validates user input before processing it.
+
+### Number Guessing Validation
 
 ```javascript
 if (guess === "" || isNaN(guess)) {
@@ -446,7 +666,26 @@ if (guess < 1 || guess > 100) {
 }
 ```
 
-This prevents invalid values from being processed.
+### Calculator Validation
+
+```javascript
+if (isNaN(number1) || isNaN(number2)) {
+    message.textContent = "Please enter valid numbers.";
+    return;
+}
+```
+
+### Division Validation
+
+```javascript
+if (operation === "/" && number2 === 0) {
+    message.textContent =
+        "Cannot divide by zero.";
+    return;
+}
+```
+
+Input validation prevents invalid values from being processed.
 
 ---
 
@@ -456,7 +695,9 @@ The player can reset the Number Guessing Game.
 
 ```javascript
 function newGame() {
-    secretNumber = Math.floor(Math.random() * 100) + 1;
+
+    secretNumber =
+        Math.floor(Math.random() * 100) + 1;
 
     attempts = 0;
 
@@ -474,8 +715,6 @@ function newGame() {
 # 🎲 Dice Animation
 
 A dice animation can be added to make the game more interactive.
-
-Example:
 
 ```javascript
 function rollDice() {
@@ -505,7 +744,7 @@ This creates a short delay before displaying the final dice result.
 
 * **HTML5** – Application structure
 * **CSS3** – Styling, layout, animations, and responsive design
-* **JavaScript** – Game logic and interactivity
+* **JavaScript** – Game logic, calculations, and interactivity
 
 ### JavaScript Concepts
 
@@ -513,7 +752,9 @@ This creates a short delay before displaying the final dice result.
 * Functions
 * `Math.random()`
 * `Math.floor()`
+* Arithmetic operators
 * Conditional statements
+* `switch` statements
 * Event listeners
 * DOM manipulation
 * Input validation
@@ -526,7 +767,7 @@ This creates a short delay before displaying the final dice result.
 # 📂 Project Structure
 
 ```text
-NumberGuessingDiceGame/
+NumberGuessingDiceCalculation/
 │
 ├── index.html
 ├── style.css
@@ -538,7 +779,8 @@ NumberGuessingDiceGame/
 │
 ├── screenshots/
 │   ├── number-guessing.png
-│   └── dice-roll.png
+│   ├── dice-roll.png
+│   └── calculator.png
 │
 └── README.md
 ```
@@ -570,6 +812,18 @@ Contains:
 * Highest roll
 * Roll Again functionality
 
+## 🧮 Simple Calculation Section
+
+Contains:
+
+* First number input
+* Arithmetic operation selector
+* Second number input
+* Calculate button
+* Result display
+* Clear/Reset button
+* Calculation counter
+
 ---
 
 # 🚀 Getting Started
@@ -577,13 +831,13 @@ Contains:
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/NumberGuessingDiceGame.git
+git clone https://github.com/your-username/NumberGuessingDiceCalculation.git
 ```
 
 ## 2. Navigate to the Project
 
 ```bash
-cd NumberGuessingDiceGame
+cd NumberGuessingDiceCalculation
 ```
 
 ## 3. Open the Application
@@ -635,16 +889,21 @@ Possible future features include:
 * 📊 Game statistics
 * 🔥 Winning streaks
 * 🎨 Custom themes
+* 🧮 Percentage and modulus operations
+* 🧮 Scientific calculator functions
+* 📜 Calculation history
 
 ---
 
 # 📚 Learning Objectives
 
-This project helps beginners understand:
+This project helps students understand:
 
 * Random number generation
 * JavaScript comparison operators
+* Arithmetic operators
 * Conditional statements
+* `switch` statements
 * Functions
 * Event handling
 * DOM manipulation
@@ -654,6 +913,7 @@ This project helps beginners understand:
 * Counters and scoring
 * CSS animations
 * Responsive web design
+* Client-side application development
 
 ---
 
@@ -665,6 +925,8 @@ Add your application screenshots here:
 ![Number Guessing Game](screenshots/number-guessing.png)
 
 ![Dice Roll Game](screenshots/dice-roll.png)
+
+![Simple Calculation](screenshots/calculator.png)
 ```
 
 Recommended screenshot structure:
@@ -673,7 +935,8 @@ Recommended screenshot structure:
 screenshots/
 │
 ├── number-guessing.png
-└── dice-roll.png
+├── dice-roll.png
+└── calculator.png
 ```
 
 ---
