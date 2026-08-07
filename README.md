@@ -1,4 +1,4 @@
-# 🎮 Number Guessing & Dice Roll Game
+# 🎮 Number Guessing & Dice Roll Game for Web Development Course
 
 A simple, interactive, and responsive **Number Guessing and Dice Roll Web Application** built using **HTML, CSS, and JavaScript**.
 
